@@ -32,12 +32,26 @@ npm install
 ```
 
 ### 2. Setup `.env`  - AFTER EVALUATION EVERYTHING WILL BE PRIVATE
-MONGO_URI="mongodb+srv://devtinder:devtinder@cluster0.ggrv0.mongodb.net/"
-JWT_SECRET=supersecretjwt
-ADMIN_USERNAME=admin
-ADMIN_PASSWORD=password123
-PORT=5001
-ADMIN_TOKEN=admintoken123
+- MONGO_URI="mongodb+srv://devtinder:devtinder@cluster0.ggrv0.mongodb.net/"
+- JWT_SECRET=supersecretjwt
+- ADMIN_USERNAME=admin
+- ADMIN_PASSWORD=password123
+- PORT=5001
+- ADMIN_TOKEN=admintoken123
+
+- FOR ADMIN - Cookies will store the admin token for chapter uploading functioning
+  - Content-Type : application/json
+  - {"username": "admin","password": "password123}
+
+- POST BY ADMIN 
+  - [{"subject": "Math","chapter": "Quadratic Equations","class": "10","unit": "3","yearWiseQuestionCount": { "2022": 10, "2023": 5 },"questionSolved": 8,"status": "In Progress","isWeakChapter": true}]
+  - output
+    - {"successCount": 1,"failedCount": 0,"failed": []
+}
+
+- FOR GETTING CHAPTERS
+ - http://localhost:5001/api/v1/chapters/6841dc6994417fedff3c75d5 CAN BE CALLED
+
 
 ### 3. Run the server
 ```bash
